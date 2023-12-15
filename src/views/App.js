@@ -1,6 +1,10 @@
 import logo from './logo.svg';
 import './App.scss';
-
+import Mycomponent from './examble/Mycomponent';
+/**
+ * 
+ * co 2 loai component func va class su dung jsx
+ */
 function App() {
   return (
     <div className="App">
@@ -17,6 +21,7 @@ function App() {
         >
           Learn React
         </a>
+        <Mycomponent/>
       </header>
     </div>
   );

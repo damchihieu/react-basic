@@ -1,38 +1,47 @@
 import React from 'react';
 class Mycomponent extends React.Component{
     state = {
-        name: '',
-        channel: 'tu hoc sang tao'
+        firstname:'',
+        lastname:''
     }
-    handleOnchangeName = (event) => {
-     //   console.log(event.target.value,'event target:',event.target,'event object:',event)
+    handlechanefirst = (event) =>{
         this.setState({
-            name: event.target.value,
-            channel: 'abc'
+            firstname: event.target.value
         })
     }
-    handleClickButon = () =>{
-        alert("click me")
+    handlechanGelastname = (event)=>{
+        this.setState({
+            lastname: event.target.value
+        })
+    }
+    handleOnClick = (event) =>{
+        event.preventDefault()
+        console.log(">>> check data",this.state)
     }
       
     render(){
         console.log('>>> call render:',this.state)
         return (
             <>
-                <div className='first'>
-                    <input value={this.state.name} type ="text" 
-                        onChange = {(event) => this.handleOnchangeName(event)}/>
-                     Hello my name: {this.state.name}
-                 </div>
-                 <div className='second'>
-                    kenh channal: {this.state.channel}
-                 </div>
-                 <div className='third'>
-                    <button onClick={() =>this.handleClickButon()}>click me</button>
-
-                 </div>
-            </>
-            
+                <form>
+                    <label htmlFor="fname">First name:</label><br/>
+                    <input 
+                    type="text" 
+                    value={this.state.firstname}
+                    onChange={(event) => this.handlechanefirst(event)}
+                    /><br/>
+                    <label htmlFor="lname">Last name:</label><br/>
+                    <input 
+                    type="text" 
+                    value={this.state.lastname}
+                    onChange={(event)=> this.handlechanGelastname(event)}
+                    /><br/>
+                    <input type="submit" 
+                    onClick={(event) => this.handleOnClick(event)}
+                    />
+                    
+               </form>        
+            </>       
         )
     }
 }

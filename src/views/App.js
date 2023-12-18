@@ -13,7 +13,6 @@ function App() {
         <p>
           Hello world With Reactjs(Tu Hoc Sang Tao)
         </p>
-   
         <Mycomponent/>
       </header>
     </div>

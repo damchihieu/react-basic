@@ -1,15 +1,16 @@
 import React from 'react';
+import ChildComponent from './ChildComponent';
 class Mycomponent extends React.Component{
     state = {
         firstname:'',
         lastname:''
     }
-    handlechanefirst = (event) =>{
+    handleonchangefirstname = (event) =>{
         this.setState({
             firstname: event.target.value
         })
     }
-    handlechanGelastname = (event)=>{
+    handleonchangelastname = (event)=>{
         this.setState({
             lastname: event.target.value
         })
@@ -28,19 +29,20 @@ class Mycomponent extends React.Component{
                     <input 
                     type="text" 
                     value={this.state.firstname}
-                    onChange={(event) => this.handlechanefirst(event)}
+                    onChange={(event) => this.handleonchangefirstname(event)}
                     /><br/>
                     <label htmlFor="lname">Last name:</label><br/>
                     <input 
                     type="text" 
                     value={this.state.lastname}
-                    onChange={(event)=> this.handlechanGelastname(event)}
+                    onChange={(event)=> this.handleonchangelastname(event)}
                     /><br/>
                     <input type="submit" 
                     onClick={(event) => this.handleOnClick(event)}
                     />
-                    
-               </form>        
+               </form> 
+               <ChildComponent name = {"Hieu"} age = {'25'}/>
+             
             </>       
         )
     }

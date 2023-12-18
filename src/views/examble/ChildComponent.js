@@ -1,53 +1,67 @@
 import React from 'react';
-//class ChildComponent extends React.Component{
-    
-      
-    // render(){
-    //     console.log('>>> check props:',this.props)
-    //     // let name = this.props.name;
-    //     // let age = this.props.age;
-
-    //     let {name,age,address,arr} = this.props;
-    //     let a = '';
-    //     return (
-    //         <>
-               
-    //            <div> Child Component name : {name} - {age} - {address}</div>
-    //            <div className='job-list'>
-    //             {
-    //               a=  arr.map((item,index) =>{
-    //                     return (
-    //                         <div key={item.id}>
-    //                             {item.title}- {item.salary}
-    //                         </div>
-    //                     )
-    //                 })
-    //             }    
-    //            </div>
-    //             {console.log('>>>> check map array:',a)}
-    //         </>       
-    //     )
-    // }
-//}
-const ChildComponent = (props) =>{
-        let {arr} = props;
-        let a = '';
+class ChildComponent extends React.Component{
+    state = {
+        showjobs: false
+    }
+    handleShowHide = ()=>{
+        this.setState({
+            showjobs: !this.state.showjobs
+        })
+    }
+    render(){
+        let {arr} = this.props;
+        let {showjobs} = this.state;
+        let check = showjobs === true ? 'showjobs = true' : 'showjobs = false';
+        console.log (">>>> check conditional",check)
         return (
             <>
-               
-               <div className='job-list'>
-                {
-                  a=  arr.map((item,index) =>{
-                        return (
-                            <div key={item.id}>
-                                {item.title}- {item.salary}
-                            </div>
-                        )
-                    })
-                }    
-               </div>
-                {console.log('>>>> check map array:',a)}
+                {showjobs ===  false ?
+                <div>
+                    <button onClick={() =>this.handleShowHide()}>Show</button>
+                </div> 
+               :
+                <>
+                    <div className='job-list'>
+                    {
+                    arr.map((item,index) =>{
+                    
+                        
+                            return (
+                                <div key={item.id}>
+                                    {item.title}- {item.salary} $
+                                </div>
+                            )
+                        })
+                    }    
+                    </div>
+                    <div>
+                        <button onClick={() =>this.handleShowHide()}>Hide</button>
+                    </div>
+                </>
+                }
             </>       
         )
+    }
 }
+// const ChildComponent = (props) =>{
+//         let {arr} = props;
+//         return (
+//             <>
+//                <div className='job-list'>
+//                 {
+//                   arr.map((item,index) =>{
+//                      if(+item.salary >= 500){
+//                             return (
+//                                 <div key={item.id}>
+//                                     {item.title}- {item.salary} $
+//                                 </div>
+//                              )
+
+//                         }
+//                    })
+//                 }    
+//                </div>
+//             </>       
+//         )
+// }
 export default ChildComponent;

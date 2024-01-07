@@ -4,14 +4,14 @@ import Mycomponent from './examble/Mycomponent';
 import ListTodo from './Todo/ListTodo';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Home from './examble/Home';
 import Nav from './Nav/Nav';
-import React from "react";
+import Home from './examble/Home';
+
+
 import {
   BrowserRouter ,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 /**
@@ -26,7 +26,7 @@ function App() {
         <Nav/>
           <img src={logo} className="App-logo" alt="logo" />
             <Switch>
-              <Route path="/" exact>
+              <Route path="/" exact={true} >
                  <Home/>
               </Route>
               <Route path="/todo">

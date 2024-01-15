@@ -8,7 +8,7 @@ class Nav extends React.Component{
     render(){
         return(
             
-            <div class="topnav">
+            <div className ="topnav">
                 
                  <NavLink to="/" activeClassName="active" exact={true}>
                 Home

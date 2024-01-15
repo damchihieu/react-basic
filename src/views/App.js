@@ -2,11 +2,12 @@ import logo from './logo.svg';
 import './App.scss';
 import Mycomponent from './examble/Mycomponent';
 import ListTodo from './Todo/ListTodo';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Nav from './Nav/Nav';
 import Home from './examble/Home';
 import ListUser from './User/ListUser';
+import DetailUser from './User/DetailUser';
 
 import {
   BrowserRouter ,
@@ -35,8 +36,11 @@ function App() {
               <Route path="/about">
                  <Mycomponent/> 
               </Route>
-              <Route path="/user">
+              <Route path="/user" exact>
                 <ListUser/>
+              </Route>
+              <Route path="/user/:id">
+                <DetailUser/>
               </Route>
             </Switch>
         </header>
